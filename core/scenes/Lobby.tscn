@@ -1,0 +1,78 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm48mbi0uswyk"]
+
+[ext_resource type="Script" path="res://core/scenes/Lobby.gd" id="1_80yqd"]
+
+[node name="Lobby" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( "1_80yqd" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Players" type="PanelContainer" parent="."]
+offset_left = 26.0
+offset_top = 26.0
+offset_right = 395.0
+offset_bottom = 277.0
+script = null
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Players"]
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 362.0
+offset_bottom = 244.0
+script = null
+
+[node name="Label" type="Label" parent="Players/VBoxContainer"]
+offset_right = 355.0
+offset_bottom = 26.0
+text = "Players"
+align = 1
+structured_text_bidi_override_options = []
+script = null
+
+[node name="PlayerList" type="ItemList" parent="Players/VBoxContainer"]
+offset_top = 30.0
+offset_right = 355.0
+offset_bottom = 237.0
+size_flags_vertical = 3
+items = []
+script = null
+
+[node name="Characters" type="PanelContainer" parent="."]
+offset_left = 616.0
+offset_top = 26.0
+offset_right = 969.0
+offset_bottom = 277.0
+script = null
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Characters"]
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 346.0
+offset_bottom = 244.0
+script = null
+
+[node name="Label" type="Label" parent="Characters/VBoxContainer"]
+offset_right = 339.0
+offset_bottom = 26.0
+text = "Characters"
+align = 1
+structured_text_bidi_override_options = []
+script = null
+
+[node name="ItemList" type="ItemList" parent="Characters/VBoxContainer"]
+offset_top = 30.0
+offset_right = 339.0
+offset_bottom = 237.0
+size_flags_vertical = 3
+items = []
+max_columns = 5
+script = null

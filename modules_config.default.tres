@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cvehn1itp4dvc"]
+
+[ext_resource type="Script" path="res://core/scripts/modules_config.gd" id="1_r3lti"]
+
+[resource]
+script = ExtResource( "1_r3lti" )
+pcks = []
+modules = []
