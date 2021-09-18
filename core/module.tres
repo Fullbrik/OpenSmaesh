@@ -5,7 +5,7 @@
 
 [sub_resource type="Resource" id="Resource_2lfos"]
 script = ExtResource( "1_rilo0" )
-name = ""
+name = "Sample"
 
 [resource]
 script = ExtResource( "1_mx035" )

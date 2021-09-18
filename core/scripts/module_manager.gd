@@ -1,6 +1,6 @@
 extends Node
 
-const CONFIG_PATH = "user://core/config/modules.res"
+const CONFIG_PATH = "user://core/config/modules.tres"
 
 var modules : Array[Module] = []
 
@@ -36,12 +36,39 @@ func load_config_data(config: ModulesConfig):
 		load_module(module_folder)
 
 func load_module(module: String):
+	print_debug("Loading module ", module, "...")
 	var module_data := load("res://" + module + "/module.tres") as Module
 	load_module_data(module_data)
 
 func load_module_data(module: Module):
 	assert(module.validate(), "Failed to validate module. Make sure all resources are of the correct type.")
+	assert(!modules.has(module), "Module alreaddy loaded.")
+	
 	modules.append(module)
+
+func unload_module(module: String):
+	print_debug("Unloading module ", module, "...")
+	
+	var module_data_final : Module
+	for module_data in modules:
+		print_debug("Checking module: ", module_data.folder)
+		if(module_data.folder == module):
+			module_data_final = module_data
+			break
+	
+	assert(module_data_final, 'unable to find module.')
+	
+	unload_module_data(module_data_final)
+
+func unload_module_data(module: Module):
+	modules.erase(module)
+
+func is_module_loaded(module: String) -> bool:
+	for module_data in modules:
+		if(module_data.folder == module):
+			return true
+	
+	return false
 
 func find_modules() -> Array[String]:
 	var module_list : Array[String] = []

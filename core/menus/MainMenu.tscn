@@ -1,16 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://vns3b43duul1"]
+[gd_scene load_steps=4 format=3 uid="uid://chs30d44pnsjk"]
 
-[ext_resource type="Script" path="res://core/scenes/MainMenu.gd" id="1_0ro6d"]
-[ext_resource type="PackedScene" uid="uid://bm48mbi0uswyk" path="res://core/scenes/Lobby.tscn" id="2_36krn"]
+[ext_resource type="Script" path="res://core/menus/MainMenu.gd" id="1_dpj1x"]
+[ext_resource type="PackedScene" path="res://core/menus/Lobby.tscn" id="2_pf5p3"]
+[ext_resource type="Script" path="res://core/scripts/selectable_item_list.gd" id="3_enq8d"]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( "1_0ro6d" )
+script = ExtResource( "1_dpj1x" )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-lobby_scene = ExtResource( "2_36krn" )
+lobby_scene = ExtResource( "2_pf5p3" )
 
 [node name="Host" type="PanelContainer" parent="."]
 offset_left = 29.0
@@ -167,13 +168,14 @@ align = 1
 structured_text_bidi_override_options = []
 script = null
 
-[node name="ModuleList" type="ItemList" parent="Modules/VBoxContainer"]
+[node name="ModuleList" type="GridContainer" parent="Modules/VBoxContainer"]
 offset_top = 30.0
 offset_right = 188.0
 offset_bottom = 280.0
 size_flags_vertical = 3
-items = []
-script = null
+columns = 2
+script = ExtResource( "3_enq8d" )
 
 [connection signal="pressed" from="Host/VBoxContainer/HostButton" to="." method="_on_HostButton_pressed"]
 [connection signal="pressed" from="Join/VBoxContainer/JoinButton" to="." method="_on_JoinButton_pressed"]
+[connection signal="on_item_value_changed" from="Modules/VBoxContainer/ModuleList" to="." method="_on_ModuleList_on_item_value_changed"]

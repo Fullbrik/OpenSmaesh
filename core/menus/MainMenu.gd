@@ -8,11 +8,11 @@ func _ready():
 	setup_module_list()
 
 func setup_module_list():
-	var module_list : ItemList = $Modules/VBoxContainer/ModuleList
+	var module_list : SelectableItemList = $Modules/VBoxContainer/ModuleList
 	var items = ModuleManager.find_modules()
 	
 	for item in items:
-		module_list.add_item(item)
+		module_list.add_item(item, ModuleManager.is_module_loaded(item))
 
 
 func _on_HostButton_pressed():
@@ -44,3 +44,10 @@ func _on_JoinButton_pressed():
 	print_debug("Joined server on: ", ip, ":", port)
 	
 	get_tree().change_scene_to(lobby_scene)
+
+
+func _on_ModuleList_on_item_value_changed(item) -> void:
+	if(item.value):
+		ModuleManager.load_module(item.text)
+	else:
+		ModuleManager.unload_module(item.text)

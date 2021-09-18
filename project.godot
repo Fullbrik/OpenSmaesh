@@ -9,10 +9,20 @@
 config_version=4
 
 _global_script_classes=[{
+"base": "CharacterBody3D",
+"class": &"Character",
+"language": &"GDScript",
+"path": "res://core/scripts/character.gd"
+}, {
 "base": "Resource",
 "class": &"CharacterData",
 "language": &"GDScript",
 "path": "res://core/scripts/character_data.gd"
+}, {
+"base": "Camera3D",
+"class": &"GameCamera",
+"language": &"GDScript",
+"path": "res://core/scripts/game_camera.gd"
 }, {
 "base": "Resource",
 "class": &"Module",
@@ -23,17 +33,25 @@ _global_script_classes=[{
 "class": &"ModulesConfig",
 "language": &"GDScript",
 "path": "res://core/scripts/modules_config.gd"
+}, {
+"base": "GridContainer",
+"class": &"SelectableItemList",
+"language": &"GDScript",
+"path": "res://core/scripts/selectable_item_list.gd"
 }]
 _global_script_class_icons={
+"Character": "",
 "CharacterData": "",
+"GameCamera": "",
 "Module": "",
-"ModulesConfig": ""
+"ModulesConfig": "",
+"SelectableItemList": ""
 }
 
 [application]
 
 config/name="Open Smaesh"
-run/main_scene="res://core/scenes/MainMenu.tscn"
+run/main_scene="res://core/menus/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]

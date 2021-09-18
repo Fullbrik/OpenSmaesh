@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvhl8ninms746"]
+
+[ext_resource type="PackedScene" uid="uid://d33if33ve7vwj" path="res://core/scenes/Cube.tscn" id="1_cf53o"]
+[ext_resource type="Script" path="res://core/scripts/game_camera.gd" id="2_guo0s"]
+
+[node name="MapSample" type="Node3D"]
+script = null
+
+[node name="Lighting" type="Node3D" parent="."]
+script = null
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 0.75025, 0.661155, 0, -0.661155, 0.75025, 0, 0, 0)
+script = null
+
+[node name="Geometry" type="Node3D" parent="."]
+script = null
+
+[node name="Cube" parent="Geometry" instance=ExtResource( "1_cf53o" )]
+transform = Transform3D(13.3235, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Logic" type="Node3D" parent="."]
+script = null
+
+[node name="GameCamera" type="Camera3D" parent="Logic"]
+script = ExtResource( "2_guo0s" )
