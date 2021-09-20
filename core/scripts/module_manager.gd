@@ -49,18 +49,21 @@ func load_module_data(module: Module):
 func unload_module(module: String):
 	print_debug("Unloading module ", module, "...")
 	
-	var module_data_final : Module
+	var module_data_final
 	for module_data in modules:
 		print_debug("Checking module: ", module_data.folder)
+		#if(module_data is Module):
 		if(module_data.folder == module):
 			module_data_final = module_data
 			break
+	
+	print_debug(module_data_final)
 	
 	assert(module_data_final, 'unable to find module.')
 	
 	unload_module_data(module_data_final)
 
-func unload_module_data(module: Module):
+func unload_module_data(module):
 	modules.erase(module)
 
 func is_module_loaded(module: String) -> bool:
@@ -92,3 +95,13 @@ func find_modules() -> Array[String]:
 	
 	return module_list
 
+func get_characters() -> Array[Character]:
+	var characters : Array[Character] = []
+	
+	# Go through each module, and each character, and add it to our list
+	for module in self.modules:
+		for character in module.characters:
+			if(character is CharacterData):
+				characters.append(character)
+	
+	return characters
